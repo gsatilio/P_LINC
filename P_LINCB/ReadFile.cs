@@ -9,8 +9,7 @@ namespace P_LINCB
         {
             StreamReader r = new StreamReader(path);
             string jsonString = r.ReadToEnd();
-            var lst = JsonConvert.DeserializeObject<MotoristaHabilitado>(jsonString, 
-                new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
+            var lst = JsonConvert.DeserializeObject<MotoristaHabilitado>(jsonString, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
 
             if (lst != null) return lst.PenalidadesAplicadas;
             return null;

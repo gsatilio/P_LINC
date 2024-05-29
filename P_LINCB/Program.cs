@@ -24,6 +24,7 @@ do
     Console.WriteLine("4 - Ordenar a lista de registros pela razão social ");
     Console.WriteLine("5 - Inserir no SQL");
     Console.WriteLine("6 - Gerar XML");
+    Console.WriteLine("7 - Inserir no MongoDB");
     Console.WriteLine("\nQuantidade de Linhas: " + TestFilters.getCountRecords(lst));
     opt = int.Parse(Console.ReadLine());
     switch (opt)
@@ -55,15 +56,14 @@ do
             break;
         case 5:
             Console.WriteLine("Inserindo arquivo no SQL...");
-            var watch = new System.Diagnostics.Stopwatch();
-            watch.Start();
-            PenalidadesAplicadas.InsertToSQL(lst);
-            watch.Stop();
-            Console.WriteLine($"Levou {watch.ElapsedMilliseconds} milissegundos!");
-            Console.WriteLine("Inserido registro no SQL com sucesso!");
+            BancoSQL.InsertToSQL(lst);
             break;
         case 6:
             Console.WriteLine(TestFilters.ConvertToXML(lst));
+            break;
+        case 7:
+            Console.WriteLine("Inserindo registros no MongoDB...");
+            BancoMongo.ProcessDataToMongoDB();
             break;
     }
     Console.WriteLine("Continuar...");
