@@ -54,14 +54,14 @@ do
             break;
         case 5:
             Console.WriteLine("Inserindo arquivo no SQL...");
-            BancoSQL.InsertToSQL(lst);
+            Banco.InsertToSQL(lst);
             break;
         case 6:
             Console.WriteLine(TestFilters.ConvertToXML(lst));
             break;
         case 7:
             Console.WriteLine("Inserindo registros no MongoDB...");
-            BancoMongo.ProcessDataToMongoDB();
+            Banco.ProcessDataToMongoDB();
             break;
     }
     Console.WriteLine("Continuar...");
