@@ -4,8 +4,6 @@ using System.Data;
 
 int opt = -1;
 
-Console.WriteLine("Hello, World!");
-
 var lst = ReadFile.GetData("C:\\5by5\\motoristas_habilitados.json");
 
 /*

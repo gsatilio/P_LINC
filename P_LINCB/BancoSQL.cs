@@ -1,8 +1,5 @@
-﻿using DnsClient.Protocol;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Runtime.Intrinsics.X86;
-using ZstdSharp.Unsafe;
 
 namespace P_LINCB
 {
@@ -86,11 +83,9 @@ namespace P_LINCB
                     }
                 }
                 // Ex. irá ficar Insert Into Tabela (....) Values (xxxx), (yyyy), (zzzz), ....
-
-                aux = aux.Remove(aux.Length - 1); // Remove a ultima virgula da string de insert values
                 #region SQL
                 _connSQL.Open();
-                cmdSQL.CommandText = aux;
+                cmdSQL.CommandText = aux.Substring(0, aux.Length - 1); // Remove a ultima virgula da string de insert values
                 cmdSQL.Connection = _connSQL;
                 try
                 {
